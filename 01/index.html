@@ -24,12 +24,11 @@
         const comInput = document.querySelector("#comInput");
         const comBtn = document.querySelector("#comBtn");
         const word = document.querySelector("#word");
-        const newWord = "";
         let num = 1;
 
         // 참가자수 입력
-        count.innerText = Number(sign);
-        
+        count.innerText = sign !== null ? Number(sign) : "참가자가 없습니다.";
+               
         // 제시어 입력
         comInput.addEventListener("keyup", function(event){            
             if(event.keyCode === 13){
@@ -55,6 +54,11 @@
             }
         });
         function FnComBtn(){
+            if(comInput.value.length !== 3){
+                alert("글자수가 안맞아");
+                num = num - 1;
+                return false;4
+            }
             word.innerText = comInput.value;
         }
     </script>
